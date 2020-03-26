@@ -144,6 +144,14 @@ Global without sharing  class SendEmail {
                         Messaging.EmailFileAttachment efa = new Messaging.EmailFileAttachment();
                         efa.setFileName(cv.pathOnClient); 
                         efa.setBody(cv.versionData);
+					
+			// If you want to add the attachment generated in the email attachment section 
+			// in the EmailMessage object, uncomment these lines below
+                        List<String> ids = new List<String>();
+                        ids.add(cv.Id);
+                        mail.setEntityAttachments(ids); 
+			// until here
+					
                         mail.setFileAttachments(new Messaging.EmailFileAttachment[] {efa});
                     }
           
